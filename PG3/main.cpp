@@ -28,17 +28,18 @@ vector<string>ParseCustomASCII(const string& filePath) {
 	return data;//パースしたデータを返す
 }
 
-int main() {
+void Printf(vector<string> data) {
+	for (const auto& row : data) {
+		// 文字列の先頭と末尾の "[" と "]" を削除して出力
+		cout << row.substr(1, row.size() - 2) << endl;
+	}
+}
 
-	string filePath = "PG3_03_02.txt";//読み込むファイルのパス
-	auto data = ParseCustomASCII(filePath);//ファイルをパースしてデータを取得
+int main() {
+	vector<string> data = ParseCustomASCII("PG3_03_02.txt");//ファイルをパースしてデータを取得
 	//データのソート
 	sort(data.begin(), data.end());
 	//パースシテデータを出力
-	for (const auto &row : data) {
-        // 文字列の先頭と末尾の "[" と "]" を削除して出力
-        cout << row.substr(1, row.size() - 2) << endl;
-    }
-
+	Printf(data);
 	return 0;
 }
