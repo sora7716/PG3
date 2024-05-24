@@ -1,38 +1,50 @@
 #pragma once
+#include <iostream>
+using namespace std;
 template<typename Type1,typename Type2,typename Type3>
 class Comparison
 {
 public://メンバ関数
 
 	/// <summary>
-	/// コンストラクタ
+	/// 一つにまとめる
 	/// </summary>
-	/// <param name="num1">int型</param>
-	/// <param name="num2">float型</param>
-	/// <param name="num3">double型</param>
-	Comparison(Type1 num1, Type2 num2,Type3 num3) :num1_(num1), num2_(num2),num3_(num3) {};
-
-
-	void Sum() {
-		result_ = static_cast<double>(num1_ + num2_ + num3);
+	static double Sum(Type1 num1,Type2 num2,Type3 num3) {
+		return static_cast<double>(num1 + num2 + num3);
 	}
 
-	//Min関数
-	Type3 Min(const Comparison& compare1, const Comparison& compare2) {
-		compare1.Sum();
-		compare2.Sum();
-		if (compare1.result_ > compare2.result_) {
-			return compare2.result_;
+	/// <summary>
+	/// 比べる
+	/// </summary>
+	/// <param name="compare1">比べる数字1</param>
+	/// <param name="compare2">比べる数字2</param>
+	/// <returns></returns>
+	static Type3 Min(Type3 compare1,Type3 compare2) {
+		
+		if (compare2 > compare1) {
+			return compare1;
 		}
-		else if (compare1.result_ < compare2.result_) {
-			return compare1.result_;
+		else if (compare2 < compare1) {
+			return compare2;
 		}
 		return 0;
 	}
 
-private://メンバ変数
-	Type1 num1_;
-	Type2 num2_;
-	Type3 num3_;
-	double result_;
+	/// <summary>
+	/// 表示
+	/// </summary>
+	/// <param name="result"></param>
+	static void Result(Type3 result) {
+		cout << "小さい数字は:" << result << endl;
+	}
+
+	/// <summary>
+	/// 更新処理
+	/// </summary>
+	/// <param name="compare1">比べる数字1</param>
+	/// <param name="compare2">比べる数字2</param>
+	static void Update(Type3 compare1, Type3 compare2) {
+		Type3 result=Min(compare1, compare2);
+		Result(result);
+	}
 };
