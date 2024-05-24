@@ -25,6 +25,8 @@ public:
 	/// </summary>
 	void Update();
 
+  const int kMovementPattern = 3;
+
 private:
 	/// <summary>
 	/// メンバ関数ポインタ

@@ -15,11 +15,11 @@ void Enemy::Withdrawal(){
 }
 
 void Enemy::Update(){
-	(this->*EnemyActionTable[0])();//接近
+	for (int i = 0; i < kMovementPattern; i++) {
 
-	(this->*EnemyActionTable[1])();//射撃
+	(this->*EnemyActionTable[i])();//Enemyの動き
+	}
 
-	(this->*EnemyActionTable[2])();//離脱
 }
 
 
