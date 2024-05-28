@@ -6,6 +6,7 @@ class Comparison
 {
 public://メンバ関数
 
+
 	/// <summary>
 	/// 一つにまとめる
 	/// </summary>
