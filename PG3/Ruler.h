@@ -1,17 +1,18 @@
 #pragma once
 #include "Stationery.h"
-class Pencil:public Stationery {
+class Ruler:public Stationery{
 public:
 	/// <summary>
 	/// コンストラクタ
 	/// </summary>
-	Pencil();
+	Ruler();
 	/// <summary>
 	/// デストラクタ
 	/// </summary>
-	~Pencil()override;
+	~Ruler()override;
 	/// <summary>
 	/// 取り出す
 	/// </summary>
 	void TakeOut()override;
 };
+

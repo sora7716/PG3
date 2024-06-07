@@ -4,12 +4,21 @@ using namespace std;
 
 class Stationery{
 
-protected:
+public:
+	/// <summary>
+	/// コンストラクタ
+	/// </summary>
 	Stationery();
 
+	/// <summary>
+	/// デストラクタ
+	/// </summary>
 	virtual~Stationery();
 
-	virtual void CreateObject();
+	/// <summary>
+	/// 取り出す
+	/// </summary>
+	virtual void TakeOut();
 
 };
 

@@ -133,10 +133,12 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pencil.cpp" />
+    <ClCompile Include="Ruler.cpp" />
     <ClCompile Include="Stationery.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pencil.h" />
+    <ClInclude Include="Ruler.h" />
     <ClInclude Include="Stationery.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

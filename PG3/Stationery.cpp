@@ -1,11 +1,12 @@
 #include "Stationery.h"
 
+//コンストラクタ
 Stationery::Stationery() {
 
 }
-
+//デストラクタ
 Stationery::~Stationery(){
 }
-
-void Stationery::CreateObject(){
+//取り出す
+void Stationery::TakeOut(){
 }
