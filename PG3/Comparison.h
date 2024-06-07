@@ -1,51 +1,44 @@
 #pragma once
 #include <iostream>
 using namespace std;
-template<typename Type1,typename Type2,typename Type3>
-class Comparison
-{
+template<typename Type1, typename Type2, typename Type3>
+class Comparison {
+
 public://メンバ関数
 
+	/// <summary>
+	/// コンストラクター
+	/// </summary>
+	/// <param name="num1">数字1</param>
+	/// <param name="num2">数字2</param>
+	/// <param name="num3">数字3</param>
+	Comparison(Type1 num1, Type2 num2, Type3 num3) :num1_(num1), num2_(num2), num3_(num3) {};
 
 	/// <summary>
-	/// 一つにまとめる
+	/// Min関数
 	/// </summary>
-	static double Sum(Type1 num1,Type2 num2,Type3 num3) {
-		return static_cast<double>(num1 + num2 + num3);
-	}
-
-	/// <summary>
-	/// 比べる
-	/// </summary>
-	/// <param name="compare1">比べる数字1</param>
-	/// <param name="compare2">比べる数字2</param>
-	/// <returns></returns>
-	static Type3 Min(Type3 compare1,Type3 compare2) {
-		
-		if (compare2 > compare1) {
-			return compare1;
+	/// <returns>一番小さい数字</returns>
+	auto Min() {
+		if (num1_ < num2_) {
+			if (num1_ < num3_) {
+				return static_cast<double>(num1_);
+			}
 		}
-		else if (compare2 < compare1) {
-			return compare2;
+		else if (num2_ < num3_) {
+			return static_cast<double>(num2_);
 		}
-		return 0;
+		return static_cast<double>(num3_);
 	}
 
 	/// <summary>
-	/// 表示
+	/// Min関数の結果を出力
 	/// </summary>
-	/// <param name="result"></param>
-	static void Result(Type3 result) {
-		cout << "小さい数字は:" << result << endl;
+	void Result() {
+		cout << Min() << endl;
 	}
 
-	/// <summary>
-	/// 更新処理
-	/// </summary>
-	/// <param name="compare1">比べる数字1</param>
-	/// <param name="compare2">比べる数字2</param>
-	static void Update(Type3 compare1, Type3 compare2) {
-		Type3 result=Min(compare1, compare2);
-		Result(result);
-	}
+private://メンバ変数
+	Type1 num1_;
+	Type2 num2_;
+	Type3 num3_;
 };
