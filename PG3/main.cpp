@@ -4,19 +4,21 @@
 using namespace std;
 
 int main() {
-	//値の設定
-	Comparison<int,   float,  double>comparison1( 6,     60.5f, 8.0    );
-	Comparison<int,   double, float >comparison2( 50,    20.0,  98.12f );
-	Comparison<float, int,    double>comparison3( 9.09f, 990,   9.0    );
-	Comparison<float, double, int   >comparison4( 12.0f, 120.4, 2      );
-	Comparison<double,float,  int   >comparison5( 234.8, 66.0f, 5      );
-	Comparison<double,int,    float >comparison6( 6,     4,     1.0f   );
-	//MIN関数を使用して結果を出力
-	comparison1.Result();
-	comparison2.Result();
-	comparison3.Result();
-	comparison4.Result();
-	comparison5.Result();
-	comparison6.Result();
+	//値を代入
+	Comparison<int,   int   >instance1( 1,     2      );
+	Comparison<float, float >instance2( 76.0f, 2.166f );
+	Comparison<double,double>instance3( 212.3, 213.7  );
+	Comparison<float, double>instance4( 2.3f,  3.7    );
+	Comparison<int,   float >instance5( 4,     2.0f   );
+	Comparison<double,int   >instance6( 22.3,  34     );
+
+	//結果を表示
+	instance1.Result();
+	instance2.Result();
+	instance3.Result();
+	instance4.Result();
+	instance5.Result();
+	instance6.Result();
+
 	return 0;
 }
