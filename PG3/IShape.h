@@ -6,6 +6,11 @@ class IShape{
 public://メンバ関数
 
 	/// <summary>
+	/// デストラクタ
+	/// </summary>
+	virtual ~IShape() = default;
+
+	/// <summary>
 	/// 仮想のSize
 	/// </summary>
 	virtual  void Size() = 0;
