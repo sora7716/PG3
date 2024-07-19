@@ -1,26 +1,30 @@
 #include <cstdio>
 #include <iostream>
+#include <string>
+#include <chrono>
 #include <thread>
 using namespace std;
-
-//出力の処理
-void Printf(int number) {
-	cout << "thread" << number << endl;
-}
+using namespace std::chrono;
 
 int main() {
 
-	//thread1の表示
-	thread th1(Printf, 1);
-	th1.join();//開放
+	//コピーの場合の計測
+	auto startCpy = high_resolution_clock::now();
+	string moji(1000000, 'a');
+	auto endCpy = high_resolution_clock::now();
+	microseconds cpyTime = duration_cast<microseconds>(endCpy - startCpy);
 
-	//thread2の表示
-	thread th2(Printf, 2);
-	th2.join();//開放
+	//移動の場合の計測
+	auto startMove = high_resolution_clock::now();
+	string&& mojiCpy = move(moji);
+	auto endMove = high_resolution_clock::now();
+	microseconds moveTime = duration_cast<microseconds>(endMove - startMove);
 
-	//thread3の表示
-	thread th3(Printf, 3);
-	th3.join();//開放
-	
+	double resultCpy = cpyTime.count();
+	double resultMove = moveTime.count();
+	cout << "1000000文字を移動とコピーで比較しました。" << endl;
+	this_thread::sleep_for(seconds(5));
+	cout << "コピー:" << resultCpy << "μs" << endl;
+	cout << "移動:" << resultMove << "μs" << endl;
 	return 0;
 }
